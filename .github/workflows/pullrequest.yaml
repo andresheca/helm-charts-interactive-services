@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Show file with line numbers, to debug
-        run: nl -ba /home/runner/work/helm-charts-interactive-services/helm-charts-interactive-services/charts/anjana/Chart.yaml
+        run: nl -ba /home/runner/work/helm-charts-interactive-services/helm-charts-interactive-services/charts/anjana/values.yaml
       - name: Set up Helm
         uses: azure/setup-helm@v4
         with:
@@ -110,4 +110,5 @@ jobs:
           helm plugin install https://github.com/helm-unittest/helm-unittest.git
           helm dependency update charts/${{ matrix.charts }}
           helm unittest charts/${{ matrix.charts }} -f ../../tests/*.yaml
+
 
